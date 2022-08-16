@@ -85,6 +85,7 @@ function lightMode() {
     $('.page-header').addClass('text-dark');
     $('.project').addClass('text-dark');
     $('#contactForm label, #contactForm input , #contactForm textarea').addClass('text-dark');
+    $(".icons i").addClass("text-dark");
 }
 
 function darkMode() {
@@ -102,6 +103,8 @@ function darkMode() {
     $('.page-header').removeClass('text-dark');
     $('.project').removeClass('text-dark');
     $('#contactForm label, #contactForm input, #contactForm textarea').removeClass('text-dark');
+    $(".icons i").removeClass("text-dark");
+
 
 
 }
