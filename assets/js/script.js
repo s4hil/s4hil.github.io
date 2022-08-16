@@ -82,6 +82,9 @@ function lightMode() {
     $('.send-btn').css('color', '#fff !important');
     $('.send-btn i').css('color', '#fff !important');
     $('.about-me *').css('color', '#242424');
+    $('.page-header').addClass('text-dark');
+    $('.project').addClass('text-dark');
+    $('#contactForm label, #contactForm input , #contactForm textarea').addClass('text-dark');
 }
 
 function darkMode() {
@@ -96,6 +99,9 @@ function darkMode() {
     $('.send-btn').css('color', '');
     $('.send-btn i').css('color', '');
     $('.about-me *').css('color', '');
+    $('.page-header').removeClass('text-dark');
+    $('.project').removeClass('text-dark');
+    $('#contactForm label, #contactForm input, #contactForm textarea').removeClass('text-dark');
 
 
 }
