@@ -86,7 +86,7 @@ function lightMode() {
     $('.project').addClass('text-dark');
     $('#contactForm label, #contactForm input , #contactForm textarea').addClass('text-dark');
     $(".icons i").addClass("text-dark");
-    $(".navbar-nav").css('background', '#cccccc');
+    $(".navbar-nav").css('background', '#999999');
 }
 
 function darkMode() {
