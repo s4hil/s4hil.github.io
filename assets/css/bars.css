@@ -1,10 +1,10 @@
 :root{
-	--htmlcss: 80%;
-	--js: 60%;
+	--htmlcss: 90%;
+	--js: 70%;
 	--php: 65%;
-	--py: 15%;
-	--mysql: 40%;
-	--cpp: 30%;
+	--py: 37%;
+	--mysql: 35%;
+	--cpp: 35%;
 }
 
 .php {
