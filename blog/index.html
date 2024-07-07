@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The functions, components and significance of Graphics Cards in Modern Computing</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Inter:400|Jura:400");
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --c: 238, 199, 99;
+  --t: 204, 204, 204;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #000;
+  margin: 0;
+  font-family: "Jura";
+  color: rgb(var(--t));
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+
+p {
+  line-height: 200%;
+  margin-bottom: 3rem;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 1rem;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.text {
+  text-shadow: 0 0 20px 1px rgb(var(--c), 1);
+  color: rgb(var(--c));
+  font-family: "Jura";
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.rectangle {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+  box-shadow: 0 0 200px 5px rgb(var(--c), 1), 0 0 20px 1px rgb(var(--c), 0.3);
+}
+
+.rectangle:first-child {
+  opacity: 1;
+  transform: translateY(0);
+  background-color: rgba(var(--c), 1);
+}
+
+.scroll:hover .rectangle:not(:first-child) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rectangle:nth-child(1) {
+  width: 100px;
+  height: 15px;
+}
+.rectangle:nth-child(2) {
+  width: 70px;
+  height: 12px;
+  transition-delay: 0.05s;
+  background-color: rgba(var(--c), 0.9);
+}
+.rectangle:nth-child(3) {
+  width: 50px;
+  height: 9px;
+  transition-delay: 0.1s;
+  background-color: rgba(var(--c), 0.8);
+}
+.rectangle:nth-child(4) {
+  width: 40px;
+  height: 7px;
+  transition-delay: 0.15s;
+  background-color: rgba(var(--c), 0.7);
+}
+.rectangle:nth-child(5) {
+  width: 32px;
+  height: 6px;
+  transition-delay: 0.2s;
+  background-color: rgba(var(--c), 0.6);
+}
+.rectangle:nth-child(6) {
+  width: 28px;
+  height: 5px;
+  transition-delay: 0.25s;
+  background-color: rgba(var(--c), 0.5);
+}
+.rectangle:nth-child(7) {
+  width: 25px;
+  height: 4px;
+  transition-delay: 0.3s;
+  background-color: rgba(var(--c), 0.4);
+}
+.rectangle:nth-child(8) {
+  width: 22px;
+  height: 3px;
+  transition-delay: 0.35s;
+  background-color: rgba(var(--c), 0.3);
+}
+.scroll:not(:hover) .rectangle:nth-child(2) {
+  transition-delay: 0.35s;
+}
+.scroll:not(:hover) .rectangle:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.scroll:not(:hover) .rectangle:nth-child(4) {
+  transition-delay: 0.25s;
+}
+.scroll:not(:hover) .rectangle:nth-child(5) {
+  transition-delay: 0.2s;
+}
+.scroll:not(:hover) .rectangle:nth-child(6) {
+  transition-delay: 0.15s;
+}
+.scroll:not(:hover) .rectangle:nth-child(7) {
+  transition-delay: 0.05s;
+}
+.scroll:not(:hover) .rectangle:nth-child(8) {
+  transition-delay: 0s;
+}
+
+
+
+
+
+
+
+/* extra */
+
+main {
+  border-style: solid;
+  border-color: rgb(var(--t), 0.2);
+  border-width: 0 1px 0 1px;
+  width: 60%;
+  height: auto;
+  margin: 0 15rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  position: relative;
+  background-color: rgb(var(--t), 0.2);
+}
+
+.top {
+  top: 5rem;
+}
+
+.bottom {
+  bottom: 5rem;
+}
+
+article {
+  position: relative;
+  margin: 10rem 4rem;
+}
+
+a {
+  color: rgb(var(--c));
+  text-decoration: none;
+}
+
+@media screen and (max-width: 850px) {
+  main {
+    width: 100%;
+    margin: 0 5rem;
+  }
+  
+  .ruler {
+    left: 0rem !important;
+  }
+}
+
+
+.ruler {
+  width: 2rem;
+  height: 100%;
+  position: absolute;
+  left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.lines {
+  width: 1px;
+  height: 100%;
+  background-color: rgb(var(--c), 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.lines span {
+  width: 1rem;
+  background-color: rgb(var(--c), 0.4);
+  height: 1px;
+  position: absolute;
+}
+
+.mask {
+  position: fixed;
+  height: 10%;
+  width: 1rem;
+  background-color: #000;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: rgb(var(--c));
+}
+
+.one {
+  top: 0;
+  border-width: 0 0 1px 0;
+  border-color: rgb(var(--c));
+  border-style: solid;
+  
+}
+.two {
+  bottom: 0;
+  border-width: 1px 0 0px 0;
+  border-color: rgb(var(--c));
+  border-style: solid;
+}
+
+.lines span:nth-child(1) {
+  top: 4%;
+}
+
+.lines span:nth-child(2) {
+  top: 8%;
+}
+
+.lines span:nth-child(3) {
+  top: 12%;
+}
+
+.lines span:nth-child(4) {
+  top: 16%;
+}
+
+.lines span:nth-child(5) {
+  top: 20%;
+}
+
+.lines span:nth-child(6) {
+  top: 24%;
+}
+
+.lines span:nth-child(7) {
+  top: 28%;
+}
+
+.lines span:nth-child(8) {
+  top: 32%;
+}
+
+.lines span:nth-child(9) {
+  top: 36%;
+}
+
+.lines span:nth-child(10) {
+  top: 40%;
+}
+
+.lines span:nth-child(11) {
+  top: 44%;
+}
+
+.lines span:nth-child(12) {
+  top: 48%;
+}
+
+.lines span:nth-child(13) {
+  top: 52%;
+}
+
+.lines span:nth-child(14) {
+  top: 56%;
+}
+
+.lines span:nth-child(15) {
+  top: 60%;
+}
+
+.lines span:nth-child(16) {
+  top: 64%;
+}
+
+.lines span:nth-child(17) {
+  top: 68%;
+}
+
+.lines span:nth-child(18) {
+  top: 72%;
+}
+
+.lines span:nth-child(19) {
+  top: 76%;
+}
+
+.lines span:nth-child(20) {
+  top: 80%;
+}
+
+.lines span:nth-child(21) {
+  top: 84%;
+}
+
+.lines span:nth-child(22) {
+  top: 88%;
+}
+
+.lines span:nth-child(23) {
+  top: 92%;
+}
+
+.lines span:nth-child(24) {
+  top: 96%;
+}
+
+.lines span:nth-child(25) {
+  top: 100%;
+}
+
+    </style>
+</head>
+<body>
+<div class="ruler">
+  <div class="mask one">0%</div>
+  <div class="mask two">0%</div>
+  <div class="lines">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+</div>
+
+</div>
+
+<main id="main">
+  <div class="line top"></div>
+
+  <article>
+    <h3 style="font-size: 3rem;">
+        The functions, components and significance of Graphics Cards in Modern Computing
+    </h3>
+    <h4 style="font-size: 1.5rem;">How Graphics Processing Units are Changing the Game in Todays World</h4>
+    <h6>Published By: Sahil Showkat at <b>07:49 PM - 07/07/2024</b></h6>
+
+    <p>
+        <img src="pic1.webp">
+    </p>
+
+    <p>— Photo by Christian Wiediger on Unsplash</p>
+
+    <p>
+        The graphics card, also known as Graphics Processing Unit (GPU), is responsible for calculating images in a computer, which can then be displayed on a monitor. It represents the interface between the processor’s calculations and the monitor. However, the development of graphics cards is now so far advanced that, in addition to this function, they can also support and relieve the CPU during calculations.
+    </p>
+
+
+    <h2 style="font-weight: bold;font-size: 1.5rem">How does the Graphics Card work?</h2>
+
+
+    <p>
+        The computer’s processor calculates what data a certain program wants to display on the screen and outputs it as so-called image data. This, mostly numerical, data is then converted by the GPU so that it can be displayed on a monitor or other device.
+
+        Many laptops and computers contain graphics cards that are already mounted on the circuit board, i.e. the mainboard. Such integrated graphics cards (IGP) do not have their own memory and also access the computer’s main memory. Due to the IGP’s lack of a memory component, the size is very small and can thus be used primarily for small devices, such as tablets or notebooks. However, this design is accompanied by a low clock rate and lower performance due to the shared working memory. Thus, IGPs are mainly used in devices that are mainly intended for office applications or browsing.
+
+        The opposite of this is the dedicated graphics card, which has its own memory, the so-called VRAM. However, this also increases the size and requires its own cooling. Therefore, dedicated GPUs are separate components that are usually connected to the motherboard via the PCI interface. Due to their own memory, they are significantly more powerful and are used in devices that are used for gaming or machine learning purposes, for example. The majority of the remaining article will mainly deal with dedicated graphics cards since there are now significantly more use cases that require such a GPU.
+    </p>
+
+    <p>
+    <h2 style="font-weight: bold;font-size: 1.5rem">What are the Components of a Graphics Card?</h2>
+        In many cases, a GPU consists of the following components:
+        <ul>
+            <li>Fan</li>
+            <li>Cooling Device</li>
+            <li>Graphics processor</li>
+            <li>Memory</li>
+            <li>Memory interface</li>
+            <li>Board</li>
+            <li>Connectors for graphics outputs (VGA, Displayport, etc.)</li>
+        </ul>
+    </p>
+
+    <p>
+        <img src="pic2.webp">
+        <p>— Photo by Rafael Pol on Unsplash</p>
+
+    </p>
+
+    <p>We will now go into detail about the most important components:</p>
+
+    <p>
+        <b>Graphics Chip</b><br>
+        The graphics chip does the actual work of the graphics card and is the brain of the system. This is where the calculations of the images are made. The other components are largely occupied with equipping the graphics chip as much as possible so that it can work at full performance and does not have to wait for the memory, for example.
+
+        <br><br><b>Graphics Memory</b><br>
+        The graphics memory stores all the data needed to calculate image and video files. As already mentioned, the separate memory can be used to bypass access to the computer’s main memory and thus maintain the computer’s performance.
+
+        The memory size and the connection play a decisive role in the selection so that the graphics memory does not suffer from performance losses. Overall, there is no component within the graphics card where compromises should be made anyway, otherwise, the performance of the entire system will always suffer, no matter how powerful the rest of the components are.
+
+        <br><br><b>Memory Interface</b><br>
+        The memory interface determines the bandwidth with which the data can be accessed. The higher the bandwidth, the more data can be transferred in a short time, which is especially important for computer games with high frame rates, i.e. many changing images.
+
+        Higher bit rates of the memory interface can generally be equated with more performance. You can think of the memory interface as the “storage” of the graphics chip. The higher the bit rate, the larger the usable storage area. In turn, with more area, the data can be placed more clearly and can thus be used again more quickly. In many graphics cards, the memory interface is the bottleneck that prevents more system performance.
+
+        <br><br><b>Cooling Device</b><br>
+        A powerful GPU is only really performant in combination with a sufficient cooling unit. Otherwise, the GPU can quickly overheat and the performance has to be throttled to prevent damage. However, GPUs should generally be able to withstand temperatures of 100 °C for a short time.
+
+        Depending on the GPU, active or passive cooling is used. Active cooling is still known from older devices, which emit an unmistakable fan noise when the performance increases. Active cooling is characterized by actively trying to transport the heat away from the chip. In most cases, a fan is still used, which runs at a higher or lower speed depending on the heat pattern. However, this has the disadvantage that it comes to the already described sound pattern during heavy use.
+
+        In passive cooling, on the other hand, the heat is transported away from the chip via a cooling medium, such as a liquid. The surface of the cooling device is designed very large to be able to absorb a lot of heat under load. This means that there is no additional noise even at high performance.
+    </p>
+
+    
+    <p>
+        <h2 style="font-weight: bold;font-size: 1.5rem">For which Applications would you need good Graphics Cards?</h2>
+        As we have already seen, all programs that have a visual output need a graphics card to be able to create the corresponding images and videos. However, integrated graphics cards are perfectly sufficient for many programs.
+
+        Beyond that, there are also some special applications that require significantly more graphics performance and therefore cannot do without a powerful, usually dedicated graphics card. These include, among others:
+    </p>
+
+    <p>
+        <ul>
+            <li>
+                <b>Gaming:</b> To enable the fast image changes in action-packed computer games, a powerful graphics card must be able to process large amounts of data within a short time.
+            </li><br>
+            <li>
+                <b>3D Modeling:</b> When new cars, machines, or other parts are designed and planned, 3D models are created to visualize components. If the component is to be viewed from different angles, the graphics card must calculate the new views within fractions of a second, otherwise, the image may judder.
+            </li><br>
+            <li>
+                <b>Image Processing and Video Editing:<b> Nowadays, images and videos are increasingly high-resolution, i.e. they contain more pixels than before. In order to be able to process all these pixels quickly, more performance is also required from the GPU.
+            </li><br>
+            <li>
+                <b>Machine Learning:</b> The topic of Machine Learning does not actually fit so well into the previous list, since no high-resolution or quickly changing image sequences are needed here. However, powerful graphics cards are also very important for machine learning, since so-called tensors are used for work and calculations. These are very similar to the numerical representation of images. As a result, a GPU can calculate machine learning models much faster than conventional processors.
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        <h2 style="font-weight: bold;font-size: 1.5rem">Types of Graphics Cards?</h2>
+    </p>
+
+    <p>
+        The most popular graphics cards are developed by two rival brands: Nvidia and AMD. No matter what kind of graphics card you purchase or find inside your PC, it's almost certainly sold directly by one of these companies or by a third-party company that has licensed the technology.
+
+        That makes it easier to purchase a graphics card because, while there are a lot of companies selling graphics cards, you can always compare them directly since they are all using the same underlying architecture. In other words, an Nvidia GeForce 4080 GPU will behave more or less the same no matter if you buy it from Asus, MSI, Gigabyte, or Nvidia.
+
+        AMD is a close competitor to Nvidia and the two companies sometimes leapfrog each other in performance and value. But as a general rule, the best AMD cards offer similar performance to the best Nvidia cards.
+
+        Intel makes integrated graphics cards that work with the company's processors, and Intel introduced its own brand of discrete graphics cards for gaming in 2022. Meanwhile, Apple's Mac computers tend to rely on integrated graphics cards. You can find out what graphics card your computer uses at any time.
+    </p>
+
+    <p>
+        <h2 style="font-weight: bold;font-size: 1.5rem">Performance Factors of Graphics Card</h2>
+    </p>
+
+    <p>
+        <ul>
+            <li><b >Architecture:</b > Determines efficiency in processing tasks like shading and rendering.</li><br>
+            <li><b >CUDA Cores / Stream Processors:</b > Number of processing units affecting computational power.</li><br>
+            <li><b >Clock Speed:</b > GHz rating, influencing processing speed.</li><br>
+            <li><b >VRAM:</b > Amount and type (e.g., GDDR6) crucial for handling data.</li><br>
+            <li><b >Memory Bus Width:</b > Determines data transfer capacity.</li><br>
+            <li><b >Memory Bandwidth:</b > Speed of data movement to/from VRAM.</li><br>
+            <li><b >TDP (Thermal Design Power):</b > Indicates heat generation and cooling needs.</li><br>
+            <li><b >Manufacturing Process:</b > Nanometer size affects efficiency and performance.</li><br>
+            <li><b >Drivers and Optimization:</b > Software impact on compatibility and efficiency.</li><br>
+            <li><b >PCIe Interface:</b > Bandwidth between GPU and motherboard.</li><br>
+            <li><b >Cooling and Overclocking:</b > Cooling solutions and potential for performance boost.</li><br>
+        </ul>
+
+    </p>
+
+    <p>
+        <h2 style="font-weight: bold;font-size: 1.5rem">Future Trends of Graphics Cards</h2>
+    </p>
+
+    <p>
+        <ul>
+            <li><strong>Ray Tracing:</strong> Increasing adoption of real-time ray tracing technology for more realistic lighting, shadows, and reflections in games and simulations.</li><br>
+            <li><strong>AI and Machine Learning Integration:</strong> GPUs are increasingly used for AI and machine learning tasks, leveraging their parallel processing power for training and inference in deep learning models.</li><br>
+            <li><strong>Performance and Efficiency Improvements:</strong> Continued advancements in GPU architectures and manufacturing processes (e.g., smaller nanometer nodes) enhancing both performance and power efficiency.</li><br>
+            <li><strong>Virtual Reality (VR) and Augmented Reality (AR):</strong> GPUs will play a critical role in delivering immersive experiences in VR and AR applications, requiring higher resolutions and frame rates.</li><br>
+            <li><strong>Cloud Gaming and Streaming:</strong> Growth in cloud gaming services leveraging GPUs for rendering games remotely and streaming them to devices with minimal latency.</li><br>
+            <li><strong>Quantum Computing Compatibility:</strong> Exploration of GPUs' role in quantum computing acceleration and hybrid quantum-classical computing approaches.</li><br>
+            <li><strong>Increased Memory and Bandwidth:</strong> Expansion of VRAM capacities and faster memory technologies to handle larger textures, higher resolutions, and complex simulations.</li><br>
+            <li><strong>Environmental Considerations:</strong> Focus on energy efficiency and sustainability in GPU design, reducing power consumption and heat generation while maintaining high performance.</li><br>
+            <li><strong>Edge Computing:</strong> GPUs integrated into edge devices for processing data closer to the source, enabling faster response times and reducing reliance on centralized cloud infrastructure.</li><br>
+            <li><strong>Customization and Specialization:</strong> Greater customization options and specialized GPUs tailored for specific applications like data centers, automotive, and scientific computing.</li><br>
+        </ul>
+
+    </p>
+
+    <p>
+        Blog Post by: <a href="https://sahil-showkat.tech">Sahil Showkat</a>
+    </p>
+
+  </article>
+
+  <div class="line bottom"></div>
+
+</main>
+
+<a class="scroll" href="#main">
+  <div class="container">
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+  </div>
+  <span class="text">Throttle up</span>
+</a>
+
+<script>
+    function updateScroller() {
+  const scrollY = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+
+  const top = Math.round((scrollY / (documentHeight - viewportHeight)) * 100);
+  const bottom = Math.round(
+    ((scrollY + viewportHeight - documentHeight) /
+      (documentHeight - viewportHeight)) *
+      100
+  );
+
+  document.querySelector(".one").textContent = `${top}%`;
+  document.querySelector(".two").textContent = `${bottom}%`;
+
+  if (viewportHeight + window.pageYOffset > 1.2 * viewportHeight) {
+    document.querySelector(".scroll").style.opacity = "1";
+  } else {
+    document.querySelector(".scroll").style.opacity = "0";
+  }
+}
+
+window.addEventListener("scroll", updateScroller);
+window.addEventListener("resize", updateScroller);
+updateScroller();
+
+</script>
+</body>
+</html>
